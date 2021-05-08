@@ -94,6 +94,15 @@ export class ProveedorService {
     return forkJoin([response1, response2]);
   }
 
+   /** PUT: update proveedor info to the server */
+  actualizarProveedor(proveedor: Proveedor): Observable<any[]>
+  {
+    let response1 = this.http.put<Proveedor[]>(this.proveedoresUrl, proveedor, this.httpOptions).subscribe((proveedors) => this.proveedor$.next(proveedors));
+    let response2 = this.http.get<number>(this.proveedoresSizeUrl).subscribe((tam) => this.sizeProveedor$.next(tam)); 
+
+    return forkJoin([response1, response2]);
+  }
+
   
 
 

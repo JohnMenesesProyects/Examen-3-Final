@@ -99,6 +99,8 @@ export class ProveedoresComponent implements AfterViewInit, OnInit  {
       //this.datosProveedor.getDatos();
   }
 
+  
+
   resetPaging(): void {
     this.paginator.pageIndex = 0;
   }

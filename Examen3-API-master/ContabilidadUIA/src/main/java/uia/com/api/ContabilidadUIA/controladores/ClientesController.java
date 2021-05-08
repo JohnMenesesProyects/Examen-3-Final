@@ -16,7 +16,7 @@ import uia.com.api.ContabilidadUIA.modelo.clientes.InfoUIA;
 
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 
 public class ClientesController {
 	  
@@ -88,5 +88,18 @@ public class ClientesController {
 			  return ResponseEntity.ok(clientes.getListaProveedores(misParametros));
 	    }
 
-	  
+	/**
+	 * Put a new cliente
+	 * @param cliente
+	 * @return
+	 */
+	@RequestMapping(value="clientes/{clienteId}",method = RequestMethod.PUT)
+	public ResponseEntity<InfoUIA> agregarCliente(@PathVariable String clienteId)  throws  ClassNotFoundException{
+		System.out.println("Saludos desde clienteById()");
+		return ResponseEntity.ok((InfoUIA)clientes.getProveedor(clienteId));
+
+	}
+
+
+
 	}
