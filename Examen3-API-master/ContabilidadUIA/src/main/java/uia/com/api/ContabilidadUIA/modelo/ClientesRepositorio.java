@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import uia.com.api.ContabilidadUIA.modelo.proveedores.*;
+import uia.com.api.ContabilidadUIA.controladores.ParmsCliente;
 import uia.com.api.ContabilidadUIA.modelo.clientes.InfoUIA;
 import uia.com.api.ContabilidadUIA.modelo.gestor.*;
 
@@ -18,7 +19,9 @@ public class ClientesRepositorio {
 
 		public ClientesRepositorio()
 		{
-			 contabilidad = new Gestor("C:\\Users\\jonat\\Desktop\\API\\contabilidadUIA-API-master\\ContabilidadUIA\\ListaProveedores.json");		
+
+
+			 contabilidad = new Gestor("C:\\Users\\jonat\\Desktop\\EXAMEN FINAL ARQ. SW\\Examen3-API-master\\ContabilidadUIA\\ListaProveedores.json");
 			 gestorProveedores = new DecoradorProveedores(contabilidad, "proveedor");		 
 			 gestorProveedores.Print();
 			 listaProveedores = gestorProveedores.getLista();
@@ -80,6 +83,13 @@ public class ClientesRepositorio {
 		public Object setProveedor(String newCliente) {
 			// TODO Auto-generated method stub
 			return null;
+		}
+
+
+
+		public ArrayList<InfoUIA> getListaProveedores(ParmsCliente parameters) {
+			listaProveedores = gestorProveedores.getPagina(parameters);
+			return listaProveedores;
 		}
 
 
